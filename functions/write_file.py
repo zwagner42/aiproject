@@ -21,3 +21,26 @@ def write_file(working_directory: str, file_path: str, content: str) -> str:
 
     except Exception as e:
         return f"Error: Some generic error occured in write_file.  {repr(e)}"
+
+
+schema_write_file = {
+    "type": "function",
+    "function": {
+        "name": "write_file",
+        "description": "Writes text to a specificed file relative to the working directory (overwriting if the file exists)",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "File path for the file to be written to, relative to the working directory",
+                },
+                "content": {
+                    "type": "string",
+                    "description": "Text content to be written to a specified file"
+                }
+            },
+            "required": ["file_path", "content"]
+        },
+    },
+}

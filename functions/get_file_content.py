@@ -27,3 +27,22 @@ def get_file_content(working_directory: str, file_path: str) -> str:
 
     except Exception as e:
         return f"Error: Some generic error occured in get_file_content.  {repr(e)}"
+
+
+schema_get_file_content = {
+    "type": "function",
+    "function": {
+        "name": "get_file_content",
+        "description": "Reads from a specified file relative to the working directory, providing the content read from the file.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "File path for the file to be read from, relative to the working directory",
+                },
+            },
+            "required": ["file_path"]
+        },
+    },
+}
